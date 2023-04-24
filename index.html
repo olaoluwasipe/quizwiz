@@ -1,0 +1,292 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | QuizWiz</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PLUGINS -->
+    <!-- FONT AWESOME --><link rel="stylesheet" href="assets/plugins/fontawesome.css">
+    <!-- OWL CAROUSEL --><link rel="stylesheet" href="assets/plugins/owl.carousel.min.css">
+    <!-- OWL CAROUSEL --><link rel="stylesheet" href="assets/plugins/owl.theme.default.min.css">
+
+    <!-- JQUERY --><script src="assets/plugins/jquery.min.js"></script>
+    <!-- FONT AWESOME --><script src="assets/plugins/fontawesome.js"></script>
+    <!-- OWL CAROUSEL --><script src="assets/plugins/owl.carousel.min.js"></script>
+</head>
+<body>
+
+    <div class="login">
+
+        <div class="content">
+
+            <div class="top">
+                <a href="index.php" class="logo"><img src="assets/img/logo-w.png" alt=""></a>
+            </div>
+
+            <div class="header">
+                <div id="valueTutor">Continue your tutoring journey with QuizWiz</div>
+                <div id="valueLearn">Continue your learning journey with QuizWiz</div>
+                <div id="valueRegister">Create your account and start using QuizWiz</div>
+            </div>
+
+            <div class="options">
+
+                <div class="opt active" onclick="tutor()" id="optTutor">
+                    <div class="icon"><i class="fas fa-user-tie"></i></div>
+                    <div class="text">Sign in as a tutor</div>
+                </div>
+                
+                <div class="opt"  onclick="learn()" id="optLearn">
+                    <div class="icon"><i class="fas fa-user-graduate"></i></div>
+                    <div class="text">Sign in as a learner</div>
+                </div>
+                
+                <div class="opt"  onclick="register()" id="optRegister">
+                    <div class="icon"><i class="fas fa-user-plus"></i></div>
+                    <div class="text">Create account</div>
+                </div>
+
+            </div>
+
+            <style>
+                .messageBox{
+                    position: relative;
+                    width: 100%;
+                    border: 1px solid;
+                    margin: 10px 0px;
+                    padding: 15px 10px 15px 50px;
+                    background-repeat: no-repeat;
+                    background-position: 10px center;
+                }
+
+                .messageBox .close{
+                    cursor: pointer;
+                    position: absolute;
+                    border-radius: 50%;
+                    right: 15px;
+                    top: 15px;
+                    background-color: #D8000C;
+                    width: 20px;
+                    height: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #fff;
+                }
+
+                .messageBox.error{
+                    color: #D8000C;
+                    background-color: #FFBABA;
+                    background-image: url('https://i.imgur.com/GnyDvKN.png');
+                }
+
+                .messageBox.success{
+                    color: #4F8A10;
+                    background-color: #DFF2BF;
+                    background-image: url('https://i.imgur.com/Q9BGTuy.png');
+                }
+            </style>
+            <!-- <div class="success messageBox">This is a success message <div class="close">x</div></div> -->
+
+            <form action="" method="post" id="formTutor">
+                
+                <div class="part">
+                    <label for="email">Registered email address</label>
+                    <input type="email" name="email" id="" placeholder="Type your email" class="email-input">
+                </div>
+                
+                <div class="part">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="" placeholder="Type your password" class="password-input">
+                </div>
+                <input type="hidden" name="login" value="hidden">
+                
+                <div class="part">
+                    <button type="submit" class="formBtn">
+                        <div class="text">Sign in</div>
+                        <div class="icon fas fa-check-circle"></div>
+                    </button>
+                    <div class="lead">Forgot password? <a href="forgotpassword.html">click here</a></div>
+                </div>
+
+            </form>
+
+            <form action="functions/auth.php" method="post" id="formLearn">
+                
+                <div class="part">
+                    <label for="email">Registered email address</label>
+                    <input type="email" name="email" id="" placeholder="Type your email" class="email-input">
+                </div>
+                
+                <div class="part">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="" placeholder="Type your password" class="password-input">
+                </div>
+                <input type="hidden" name="login" value="hidden">
+                
+                <div class="part">
+                    <button type="submit" name="login" class="formBtn">
+                        <div class="text">Sign in</div>
+                        <div class="icon fas fa-check-circle"></div>
+                    </button>
+                    <div class="lead">Forgot password? <a href="forgotpassword.html">click here</a></div>
+                </div>
+
+            </form>
+
+            <form action="functions/auth.php" method="post" id="formRegister">
+
+                <div class="part mini">
+                    <label for="fName">Your first name</label>
+                    <input type="text" name="firstName" id="" placeholder="Type your first name" class="name-input">
+                </div>
+
+                <div class="part mini">
+                    <label for="lName">Your Last name</label>
+                    <input type="text" name="lastName" id="" placeholder="Type your last name" class="name-input">
+                </div>
+                
+                <div class="part mini">
+                    <label for="email">Your email address</label>
+                    <input type="email" name="email" id="" placeholder="Type your email" class="email-input">
+                </div>
+
+                <div class="part mini">
+                    <label for="acctType">Your account type</label>
+                    <div class="paired">
+                        <div class="pair">
+                            <label style="display: flex;" for="tutorType">
+                                <input type="radio" name="acctType" value="1" id="tutorType">
+                                <div class="text">Tutor</div>
+                            </label>
+                        </div>
+                        
+                        <div class="pair">
+                            <label style="display: flex;" for="learnerType">
+                                <input type="radio" name="acctType" value="0" checked id="learnerType">
+                                <div class="text">Learner</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="part mini">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="" placeholder="Type your password" class="password-input">
+                </div>
+
+                <div class="part mini">
+                    <label for="cpassword">Confirm password</label>
+                    <input type="password" name="cpassword" id="" placeholder="Confirm your password" class="password-input">
+                </div>
+                <input type="hidden" name="signup" value="hidden">
+                
+                <div class="part">
+                    <button type="submit" name="signup" class="formBtn">
+                        <div class="text">Sign Up</div>
+                        <div class="icon fas fa-check-circle"></div>
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="dispImage"><img src="assets/img/login.png" alt=""></div>
+
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script>
+        function tutor() {
+            document.getElementById('formTutor').style.left = "0%";
+            document.getElementById('formLearn').style.left = "-150%";
+            document.getElementById('formRegister').style.left = "-150%";
+            document.getElementById('optTutor').style.borderColor = "#C5D86D";
+            document.getElementById('optLearn').style.borderColor = "#333";
+            document.getElementById('optRegister').style.borderColor = "#333";
+            document.getElementById('optTutor').style.color = "#C5D86D";
+            document.getElementById('optLearn').style.color = "#fff";
+            document.getElementById('optRegister').style.color = "#fff";
+            document.getElementById('valueTutor').style.left = "0%";
+            document.getElementById('valueLearn').style.left = "-150%";
+            document.getElementById('valueRegister').style.left = "-150%";
+        }
+        
+        function learn() {
+            document.getElementById('formTutor').style.left = "-150%";
+            document.getElementById('formLearn').style.left = "0%";
+            document.getElementById('formRegister').style.left = "-150%";
+            document.getElementById('optTutor').style.borderColor = "#333";
+            document.getElementById('optLearn').style.borderColor = "#C5D86D";
+            document.getElementById('optRegister').style.borderColor = "#333";
+            document.getElementById('optTutor').style.color = "#fff";
+            document.getElementById('optLearn').style.color = "#C5D86D";
+            document.getElementById('optRegister').style.color = "#fff";
+            document.getElementById('valueTutor').style.left = "-150%";
+            document.getElementById('valueLearn').style.left = "0%";
+            document.getElementById('valueRegister').style.left = "-150%";
+        }
+        
+        function register() {
+            document.getElementById('formTutor').style.left = "-150%";
+            document.getElementById('formLearn').style.left = "-150%";
+            document.getElementById('formRegister').style.left = "-0%";
+            document.getElementById('optTutor').style.borderColor = "#333";
+            document.getElementById('optLearn').style.borderColor = "#333";
+            document.getElementById('optRegister').style.borderColor = "#C5D86D";
+            document.getElementById('optTutor').style.color = "#fff";
+            document.getElementById('optLearn').style.color = "#fff";
+            document.getElementById('optRegister').style.color = "#C5D86D";
+            document.getElementById('valueTutor').style.left = "-150%";
+            document.getElementById('valueLearn').style.left = "-150%";
+            document.getElementById('valueRegister').style.left = "0%";
+        }
+
+
+        $(document).on("click", ".messageBox .close", function(e){
+            e.preventDefault();
+            $(this).parent().remove()
+        })
+
+        $("form").on("submit", function(e){
+            e.preventDefault();
+            var form = $(this);
+            var data = $(this).serialize();
+            $.ajax({
+                url: 'functions/auth.php',
+                dataType: "json",
+                data: data,
+                processData: false,
+                type: 'POST',
+                success: function(response){
+                    console.log(response)
+                    if(response.errors){
+                        var errors = response.errors;
+                        $.each((errors), function(v, i){
+                            form.prepend('<div class="error messageBox"> '+i+' <div class="close">x</div></div>')
+                        })
+                    }else if(response.user){
+                        form.prepend('<div class="success messageBox"> You have logged in Successfully <div class="close">x</div></div>');
+                        // localStorage.setItem('user', JSON.stringify(response.user));
+                        setTimeout(function(){
+                            if(response.user.type == 0){
+                                window.location.href = "learner/"
+                            }else if(response.user.type == 1){
+                                window.location.href = "tutor/"
+                            }
+                        }, 1000)
+                    }
+                }
+            })
+        })
+    </script>
+
+</body>
+</html>

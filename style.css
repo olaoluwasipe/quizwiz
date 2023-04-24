@@ -1,0 +1,369 @@
+/* GOOGLE FONTS - NUNITO */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+/* GOOGLE FONTS - INTER */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color1: #0D1321;
+    --color2: #C5D86D;
+    --color3: #FFEDDF;
+    --font1: 'Inter', sans-serif;
+    --font2: 'Nunito', sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: var(--font2);
+    font-size: 14px;
+}
+
+img{
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+/* FLEX CLASSES */
+.flex{
+    display: flex;
+}
+
+.row-center{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-between{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.row-end{
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.row-start{
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.row-around{
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.row-even{
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.wrap{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.column-center{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.column-start{
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.column-end{
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+
+
+/* LOGIN PAGE */
+.login{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: var(--color1);
+}
+
+.login .content{
+    position: relative;
+    width: 58%;
+}
+
+.login .content .top{
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.login .content .top .logo{
+    display: inline-block;
+    width: 200px;
+}
+
+.login .content .header{
+    position: relative;
+    height: 30px;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--color2);
+}
+
+.login .content .header #valueTutor{
+    position: absolute;
+    transition: .3s;
+}
+
+.login .content .header #valueLearn, .login .content .header #valueRegister{
+    position: absolute;
+    left: -150%;
+    transition: .3s;
+}
+
+.login .content .options{
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+.login .content .options .opt{
+    width: 170px;
+    height: 120px;
+    margin-right: 20px;
+    border: 5px solid #333;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    color: #fff;
+    transition: .3s;
+}
+
+.login .content .options .opt .icon{
+    margin-bottom: 10px;
+    font-size: 2.5em;
+}
+
+.login .content .options .opt .text{
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.login .content .options .opt:hover{
+    cursor: pointer;
+    border-color: #fff;
+}
+
+#optTutor{
+    border-color: var(--color2);
+    color: var(--color2);
+}
+
+.login .content form{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    transition: .3s;
+}
+
+.login .content form .part{
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.login .content form .part.mini{
+    width: 48%;
+}
+
+.login .content form .part label{
+    width: fit-content;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.login .content form .part input{
+    width: 100%;
+    padding: 12px 40px;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 1.5em;
+    color: #fff;
+}
+
+input.email-input{
+    background-image: url('assets/icon/envelope.svg');
+}
+
+input.password-input{
+    background-image: url('assets/icon/key.svg');
+}
+
+.login .content form .part button[type=submit]{
+    cursor: pointer;
+    width: fit-content;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: capitalize;
+    background-color: #fff;
+}
+
+.login .content form .part button[type=submit] .icon{
+    margin-left: 7px;
+    font-size: 1.2em;
+}
+
+.login .content form .part button[type=submit]:hover{
+    background-color: #333;
+    color: #fff;
+}
+
+.login .content form .part .paired{
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.login .content form .part .paired .pair{
+    width: fit-content;
+    margin-right: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.login .content form .part input[type=radio]{
+    width: fit-content;
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+    accent-color: var(--color2);
+}
+
+.login .content form .part .paired .pair .text{
+    width: fit-content;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: #fff;
+}
+
+.login .content form .part .lead{
+    width: fit-content;
+    font-size: 1.1em;
+    font-weight: 300;
+    color: #fff;
+}
+
+.login .content form .part .lead a{
+    display: inline-block;
+    margin-left: 5px;
+    font-weight: bold;
+    text-decoration: underline;
+    color: var(--color2);
+}
+
+.login .content form .part .lead a:hover{
+    color: var(--color3);
+}
+
+.login .dispImage{
+    /* Zuru Change This */
+    background-image: url('https://cdni.pornpics.com/1280/7/153/51746605/51746605_098_2ee2.jpg');
+    background-size: cover;
+    /* Zuru Change This */
+    width: 38%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color3);
+}
+
+.login .dispImage img{
+    width: 80%;
+}
+
+#formRegister .part{
+    margin-bottom: 20px;
+}
+
+#formTutor{
+    position: absolute;
+    left: 0%;
+}
+
+#formLearn{
+    position: absolute;
+    left: -150%;
+}
+
+#formRegister{
+    position: absolute;
+    left: -150%;
+}
